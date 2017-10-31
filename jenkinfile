@@ -1,0 +1,41 @@
+pipeline    {
+ agent any
+ stages {
+     stage ('merge'){
+      steps {
+        sh 'cd ~/marmotta/marmotta'
+        sh 'git checkout dev'
+        sh 'ls '
+        sh 'touch dev.py'
+        sh 'git add dev.py'
+        sh 'git commit -m"this is my dev.pt" '
+        sh 'git checkout master'
+        sh 'git merge dev'
+        
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+}      
+
+
+
+
+
+
+
+
+ }
+
