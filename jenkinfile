@@ -1,6 +1,10 @@
 pipeline    {
- agent 'linux_centos2'
- stages {
+ agent {
+ 
+ label 'linux_centos2'
+ 
+  }
+  stages {
      stage ('merge'){
       steps {
         sh 'cd ~/marmotta/marmotta'
