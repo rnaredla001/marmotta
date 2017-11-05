@@ -1,45 +1,25 @@
 pipeline    {
- agent {
- 
- label 'linux_centos2'
- 
-  }
+ agent any
   stages {
      stage ('merge'){
       steps {
-        sh 'cd ~/marmotta/marmotta'
-        sh 'git checkout dev'
-        sh 'ls '
-        sh 'touch dev.py'
-        sh 'git add dev.py'
-        sh 'git commit -m"this is my dev.pt" '
-        sh 'git checkout master'
-        sh 'git merge dev'
+        sh 'mvn compile'
+       
         
 }
 
-
-
 }
 
-
-
-
-
-
-
-
-
-
-
-}      
-
-
-
-
-
-
-
-
+}  
+post {
+    failure {
+      emailext(
+        subject: "${env.JOB_NAME} [${env.BUILD_NUMBER}] Failed!",
+        body: """<p>'${env.JOB_NAME} [${env.BUILD_NUMBER}]' Failed!":</p>
+        <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>""",
+        to: "cenaap875@gmail.com"
+      )
+    }
+  }
  }
 
