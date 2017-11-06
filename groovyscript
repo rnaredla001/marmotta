@@ -20,7 +20,7 @@ stages {
  post {
    always {
      archiveArtifacts artifacts: 'pom.xml',  fingerprint: true*
-     sh 'cp pom_{env.BUILD.NUMBER}.xml /var/www/html/
+     sh 'cp pom.{$BUILD.NUMBER}.xml /var/www/html/
      archiveArtifacts artifacts: 'groovyscript',  fingerprint: true
      }
    }
