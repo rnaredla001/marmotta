@@ -19,7 +19,7 @@ stages {
  }
  post {
    always {
-     archiveArtifacts artifacts: 'pom.$BUILD_NUMBER.xml',  fingerprint: true
+     archiveArtifacts artifacts: 'pom$BUILD_NUMBER.xml',  fingerprint: true
     
      archiveArtifacts artifacts: 'groovyscript',  fingerprint: true
      }
