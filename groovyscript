@@ -19,7 +19,8 @@ stages {
  }
  post {
    always {
-     archiveArtifacts artifacts: 'pom.xml', 'groovyscript' fingerprint: true
+     archiveArtifacts artifacts: 'pom.xml',  fingerprint: true
+     archiveArtifacts artifacts: 'groovyscript',  fingerprint: true
      }
    }
 }
