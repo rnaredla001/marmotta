@@ -17,7 +17,7 @@ stages {
       }
    }
    post {
-   success {
+   always {
      archiveArtifacts artifacts: 'pom.xml', fingerprint: true
      }
    }
