@@ -16,10 +16,10 @@ stages {
       sh 'mvn package'
       }
    }
-   post {
+ }
+ post {
    always {
      archiveArtifacts artifacts: 'pom.xml', fingerprint: true
      }
    }
- }
 }
